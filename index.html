@@ -1,0 +1,108 @@
+
+Tú dijiste:
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="fotitos/1love.jpeg" />
+
+  <title>unclick+</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0049F7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Tahoma, sans-serif;
+      color: #FFA6E7;
+      cursor: pointer;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      padding: 24px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      display: none;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin: 0;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" onclick="changeVibe()">
+    <img id="vibeImage" alt="vibe image" />
+    <h1 id="phrase">FELIZ 14 DE FEBRERO VEXI &lt;3</h1>
+  </div>
+
+  <script>
+    const phrases = [
+      "Acariciar mil gatos es conocer tu alma\n\nSomos locxs rebeldes\nloco de estar a tu lado\nsos maravillosa\nextrañamente perfecta, brillante",
+      "Te amo cariño",
+      "Feliz 14 de febrero guapa 👩🏻‍❤️‍💋‍👩🏽",
+      "Después de tanto, qué gusto estar vivxs, y juntxs",
+      "Te quiero con la eternidad que nos concede la brevedad de tantos momentos inolvidables.",
+      "¡Ay, Amor! No cabe duda: ¡tu amor es una cosa esplendorosa!",
+      "Seamos la llama que caliente, siempre."
+    ];
+
+    const images = [
+      "fotitos/1love.jpeg",
+      "fotitos/2love.jpeg",
+      "fotitos/3love.jpeg",
+      "fotitos/4love.jpeg",
+      "fotitos/5love.jpeg",
+      "fotitos/6love.jpeg",
+      "fotitos/7love.jpeg",
+      "fotitos/8love.jpeg"
+    ];
+
+    const phraseEl = document.getElementById("phrase");
+    const imageEl = document.getElementById("vibeImage");
+
+    let showingText = true;
+
+    function changeVibe() {
+      if (showingText) {
+        phraseEl.style.display = "none";
+        imageEl.src = images[Math.floor(Math.random() * images.length)];
+        imageEl.style.display = "block";
+      } else {
+        imageEl.style.display = "none";
+        phraseEl.textContent =
+          phrases[Math.floor(Math.random() * phrases.length)];
+        phraseEl.style.display = "block";
+      }
+
+      showingText = !showingText;
+    }
+  </script>
+</body>
+</html>
